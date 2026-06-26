@@ -1,0 +1,156 @@
+/* ----------------------------------
+   COLOR SYSTEM
+---------------------------------- */
+:root {
+  --color-black: #1a1a1a;
+  --color-gray: #e5e5e5;
+  --color-dark-gray: #3a3a3a;
+  --color-yellow: #f4c430;
+  --color-white: #ffffff;
+
+  --max-width: 1100px;
+  --spacing-section: 4rem;
+  --radius-soft: 8px;
+  --shadow-soft: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* ----------------------------------
+   GLOBAL RESET
+---------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-white);
+  color: var(--color-black);
+  line-height: 1.6;
+}
+
+/* ----------------------------------
+   HEADER
+---------------------------------- */
+.header {
+  background: var(--color-black);
+  color: var(--color-yellow);
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.header__logo {
+  width: 120px;
+  border-radius: var(--radius-soft);
+  margin-bottom: 1rem;
+}
+
+.header__title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.header__subtitle {
+  font-size: 1.1rem;
+  color: var(--color-gray);
+}
+
+/* ----------------------------------
+   SECTIONS
+---------------------------------- */
+.section {
+  padding: var(--spacing-section) 1rem;
+  background: var(--color-white);
+}
+
+.section--alt {
+  background: var(--color-gray);
+}
+
+.section__container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.section__row {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.section__row--reverse {
+  flex-direction: column-reverse;
+}
+
+.section__image img {
+  width: 100%;
+  border-radius: var(--radius-soft);
+  box-shadow: var(--shadow-soft);
+}
+
+.section__title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--color-dark-gray);
+}
+
+.section__text {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.section__list {
+  list-style: none;
+  font-size: 1.1rem;
+}
+
+.section__list li {
+  margin-bottom: 0.5rem;
+}
+
+/* ----------------------------------
+   FOOTER
+---------------------------------- */
+.footer {
+  background: var(--color-black);
+  color: var(--color-yellow);
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.footer__text {
+  margin-bottom: 0.5rem;
+}
+
+/* ----------------------------------
+   TABLET BREAKPOINT
+---------------------------------- */
+@media (min-width: 600px) {
+  .section__row {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .section__row--reverse {
+    flex-direction: row-reverse;
+  }
+
+  .section__image,
+  .section__content {
+    flex: 1;
+  }
+}
+
+/* ----------------------------------
+   DESKTOP BREAKPOINT
+---------------------------------- */
+@media (min-width: 900px) {
+  .header__title {
+    font-size: 2.5rem;
+  }
+
+  .section__title {
+    font-size: 2rem;
+  }
+}
