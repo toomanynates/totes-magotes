@@ -1,0 +1,185 @@
+<!-- ttt -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="title">Totes Magotes Moving Tote Rental</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body class="dark-theme" background-image="assets/night-cafe-mockup.jpg">
+
+    <header class="header">
+        <div class="header__container">
+            <div class="header__logo">
+                <img src="assets/logo.jpg" alt="Totes Magotes" class="header__logo-img">
+            </div>
+            <nav class="header__nav">
+                <a href="#features" class="header__link">Features</a>
+                <a href="#pricing" class="header__link">Pricing</a>
+                <a href="#testimonials" class="header__link">Reviews</a>
+                <a href="#contact" class="header__btn">Get Started</a>
+            </nav>
+            <button class="header__hamburger" data-sidebar-btn aria-label="Open menu">
+                <span class="hamburger__lines"><i class="fas fa-bars"></i></span>
+            </button>
+        </div>
+        <nav class="mobile-nav" data-sidebar>
+            <a href="#features" class="mobile-nav__link">What's Included</a>
+            <a href="#pricing" class="mobile-nav__link">Pricing</a>
+            <a href="#testimonials" class="mobile-nav__link">Reviews</a>
+            <a href="#contact" class="mobile-nav__btn">Get Started</a>
+        </nav>
+        <div class="overlay" data-overlay></div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero__container">
+                <div class="hero__content">
+                    <img src="assets/logo.jpg" alt="Totes Magotes" class="hero__logo-mobile">
+                    <h1 class="hero__title">Totes <span class="yellow">Magotes</span></h1>
+                    <p class="hero__subtitle">Our platform gives you the tools to build striking, high-converting campaigns instantly. Bold choices drive bold results.</p>
+                    <a href="#contact" class="hero__cta">Claim Your Access</a>
+                    <button onclick="onClickDarkTheme()" class="hero__btn">Dark Theme</button>
+                </div>
+                <div class="hero__image-wrapper">
+                    <img src="./assets/stack-01.jpg" alt="Dynamic abstract business workspace illustration" class="hero__image">
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="features__container">
+                <div class="features__header">
+                    <h2 class="features__main-title">What's Included</h2>
+                    <p class="features__main-subtitle">Everything you need to move — delivered and picked up.</p>
+                </div>
+                <div class="features__grid-wrapper included-grid-wrapper">
+                    <div class="pricing__grid">
+                        <div class="pricing-card">
+                            <h3 class="pricing-card__tier">20 TOTES</h3>
+                            <div class="pricing-card__price">
+                                <span class="pricing-card__amount">$99</span>
+                            </div>
+                            <p class="pricing-card__description">+ Tote dolly — 1 bedroom house / apartment</p>
+                            <img src="assets/house01-freepik.jpg" alt="1 bedroom" class="pricing-card__house">
+                            <a href="#contact" class="pricing-card__btn">Select</a>
+                        </div>
+
+                        <div class="pricing-card pricing-card--popular">
+                            <div class="pricing-card__badge">Most Popular</div>
+                            <h3 class="pricing-card__tier">40 TOTES</h3>
+                            <div class="pricing-card__price">
+                                <span class="pricing-card__amount">$169</span>
+                            </div>
+                            <p class="pricing-card__description">+ 2 Tote dollies — 2-3 bedroom house / apartment</p>
+                            <img src="assets/house02-freepik.jpg" alt="2-3 bedroom" class="pricing-card__house">
+                            <a href="#contact" class="pricing-card__btn pricing-card__btn--popular">Select</a>
+                        </div>
+
+                        <div class="pricing-card">
+                            <h3 class="pricing-card__tier">60 TOTES</h3>
+                            <div class="pricing-card__price">
+                                <span class="pricing-card__amount">$219</span>
+                            </div>
+                            <p class="pricing-card__description">+ 3 Tote dollies — 4+ bedroom house / apartment</p>
+                            <img src="assets/house03-freepik.jpg" alt="4+ bedroom" class="pricing-card__house">
+                            <a href="#contact" class="pricing-card__btn">Select</a>
+                        </div>
+                    </div>
+                        <h3 class="pricing-card__tier">Core Plan</h3>
+                        <div class="pricing-card__price">$29<span>/mo</span></div>
+                        <p class="pricing-card__description">Perfect for individuals getting traction.</p>
+                        <ul class="pricing-card__features">
+                            <li>✓ Standard access keys</li>
+                            <li>✓ 5 active workspaces</li>
+                            <li>✓ Weekly automated reports</li>
+                        </ul>
+                        <a href="#contact" class="pricing-card__btn">Select Core</a>
+                    </div>
+
+                    <div class="pricing-card pricing-card--popular">
+                        <div class="pricing-card__badge">Most Popular</div>
+                        <h3 class="pricing-card__tier">Growth Plan</h3>
+                        <div class="pricing-card__price">$79<span>/mo</span></div>
+                        <p class="pricing-card__description">Built tailored for expanding teams.</p>
+                        <ul class="pricing-card__features">
+                            <li>✓ Unrestricted global access</li>
+                            <li>✓ Unlimited workspaces</li>
+                            <li>✓ Real-time alerting engine</li>
+                            <li>✓ Priority human support</li>
+                        </ul>
+                        <a href="#contact" class="pricing-card__btn pricing-card__btn--popular">Select Growth</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="no-mess-banner">
+            <div class="no-mess__container">
+                <h2 class="no-mess__title">NO FOLDING BOXES, NO TAPE, AND NO CARDBOARD MESS.</h2>
+                <p class="no-mess__text">Great for local moves, apartments, and home moves around Woodburn and surrounding areas. <span class="no-mess__note">We are delivering outside of our local area for a fee.</span></p>
+            </div>
+        </section>
+
+        <section class="add-ons">
+            <div class="add-ons__container">
+                <div class="add-ons__card">
+                    <div class="add-ons__icon"><i class="fa-solid fa-person-dolly"></i></div>
+                    <div class="add-ons__content">
+                        <h3 class="add-ons__title">Add a heavy item hand truck</h3>
+                        <p class="add-ons__desc">For appliances and large furniture — makes moving heavy items easy and safe.</p>
+                    </div>
+                    <div class="add-ons__price">
+                        <span class="price-chip">$35</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials">
+            <div class="testimonials__container">
+                <div class="testimonials__image-wrapper">
+                    <img src="./assets/loading.jpg" alt="Playful geometric speech bubbles graphic" class="testimonials__image">
+                </div>
+                <div class="testimonials__content">
+                    <h2 class="testimonials__title">Trusted by Innovators</h2>
+                    <blockquote class="testimonial-item">
+                        <p class="testimonial-item__quote">"Switching to this framework changed how we launch products. The visual hierarchy keeps our conversion rates consistently high."</p>
+                        <cite class="testimonial-item__author">— Morgan V., Lead Product Designer</cite>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="contact__container">
+                <h2 class="contact__title">Ready to Transform Your Workflow?</h2>
+                <p class="contact__subtitle">Drop your details below and our team will get you onboarded within the hour.</p>
+                <form class="contact-form" onsubmit="event.preventDefault();">
+                    <div class="contact-form__group">
+                        <label for="name" class="contact-form__label">Name</label>
+                        <input type="text" id="name" class="contact-form__input" placeholder="Your Name" required>
+                    </div>
+                    <div class="contact-form__group">
+                        <label for="email" class="contact-form__label">Email Address</label>
+                        <input type="email" id="email" class="contact-form__input" placeholder="you@domain.com" required>
+                    </div>
+                    <button type="submit" class="contact-form__submit">Get Started Instantly</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <p>&copy; 2026 BoldBrand. All rights reserved. Designed for maximum momentum.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

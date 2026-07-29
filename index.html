@@ -1,147 +1,883 @@
-<!-- ttt -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brochure Marketing Website</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Totes Magotes moving tote rental for clean, simple local moves around Woodburn and surrounding areas.">
+  <title>Totes Magotes | Moving Tote Rental</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600;800;900&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --tm-ink: #11100e;
+      --tm-cream: #fff7ea;
+      --tm-paper: #f8efdf;
+      --tm-yellow: #ffb703;
+      --tm-yellow-dark: #e49b00;
+      --tm-muted: #5c5246;
+      --tm-line: rgba(17, 16, 14, 0.18);
+      --tm-shadow: rgba(17, 16, 14, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--tm-ink);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255, 183, 3, 0.16), transparent 28rem),
+        linear-gradient(180deg, #080806 0, #080806 1.25rem, var(--tm-paper) 1.25rem);
+      line-height: 1.5;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-shell {
+      width: min(100% - 1rem, 74rem);
+      margin: 1.25rem auto;
+      overflow: hidden;
+      border: 3px solid var(--tm-ink);
+      border-radius: 1.35rem;
+      background: var(--tm-cream);
+      box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.22);
+    }
+
+    .brush-text {
+      position: relative;
+      z-index: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: "Bangers", Impact, sans-serif;
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .brush-text::before {
+      position: absolute;
+      z-index: -1;
+      inset: -0.22em -0.7em;
+      content: "";
+      background: var(--tm-ink);
+      clip-path: polygon(1% 22%, 14% 14%, 30% 21%, 48% 8%, 66% 18%, 88% 10%, 100% 26%, 94% 58%, 100% 83%, 78% 78%, 57% 93%, 34% 80%, 12% 88%, 0 73%, 7% 50%);
+    }
+
+    .section-label {
+      font-family: "Bangers", Impact, sans-serif;
+      font-size: clamp(2rem, 8vw, 5.5rem);
+      line-height: 0.88;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .section-label__line {
+      display: block;
+    }
+
+    .section-label__line--yellow {
+      color: var(--tm-yellow);
+      text-shadow: 0.04em 0.04em 0 var(--tm-ink);
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 3.25rem;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      border: 3px solid var(--tm-ink);
+      border-radius: 0.55rem;
+      background: var(--tm-yellow);
+      color: var(--tm-ink);
+      font-family: "Bangers", Impact, sans-serif;
+      font-size: 1.25rem;
+      letter-spacing: 0;
+      line-height: 1;
+      text-transform: uppercase;
+      box-shadow: 0.28rem 0.28rem 0 var(--tm-ink);
+      transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+    }
+
+    .button:hover {
+      transform: translate(-0.12rem, -0.12rem);
+      box-shadow: 0.4rem 0.4rem 0 var(--tm-ink);
+      background: #ffc426;
+    }
+
+    .button--dark {
+      background: var(--tm-ink);
+      color: var(--tm-cream);
+      box-shadow: 0.28rem 0.28rem 0 var(--tm-yellow);
+    }
+
+    .button--dark:hover {
+      background: #000;
+      box-shadow: 0.4rem 0.4rem 0 var(--tm-yellow);
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 2px solid var(--tm-line);
+      background: rgba(255, 247, 234, 0.94);
+      backdrop-filter: blur(12px);
+    }
+
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.75rem clamp(1rem, 4vw, 2rem);
+    }
+
+    .header__brand {
+      display: flex;
+      min-width: 0;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: "Bangers", Impact, sans-serif;
+      font-size: 1.5rem;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .header__logo {
+      width: 3.25rem;
+      height: 3.25rem;
+      flex: 0 0 auto;
+      border: 2px solid var(--tm-ink);
+      border-radius: 999px;
+      object-fit: cover;
+      background: var(--tm-yellow);
+    }
+
+    .header__brand-text {
+      display: none;
+    }
+
+    .header__nav {
+      display: none;
+      align-items: center;
+      gap: 1.25rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+    }
+
+    .header__nav-link {
+      position: relative;
+    }
+
+    .header__nav-link::after {
+      position: absolute;
+      left: 0;
+      bottom: -0.3rem;
+      width: 100%;
+      height: 0.18rem;
+      content: "";
+      background: var(--tm-yellow);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 160ms ease;
+    }
+
+    .header__nav-link:hover::after {
+      transform: scaleX(1);
+    }
+
+    .header__menu-button {
+      width: 3.25rem;
+      height: 3.25rem;
+      border: 3px solid var(--tm-ink);
+      border-radius: 0.75rem;
+      background: var(--tm-yellow);
+      box-shadow: 0.18rem 0.18rem 0 var(--tm-ink);
+    }
+
+    .header__menu-icon,
+    .header__menu-icon::before,
+    .header__menu-icon::after {
+      display: block;
+      width: 1.35rem;
+      height: 0.22rem;
+      margin: auto;
+      border-radius: 99px;
+      background: var(--tm-ink);
+      content: "";
+    }
+
+    .header__menu-icon::before {
+      transform: translateY(-0.45rem);
+    }
+
+    .header__menu-icon::after {
+      transform: translateY(0.23rem);
+    }
+
+    .mobile-nav {
+      display: none;
+      grid-template-columns: 1fr;
+      gap: 0.2rem;
+      padding: 0 1rem 1rem;
+      border-top: 2px solid var(--tm-line);
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .mobile-nav--open {
+      display: grid;
+    }
+
+    .mobile-nav__link {
+      padding: 0.8rem 0;
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      gap: 1.75rem;
+      padding: clamp(1.75rem, 5vw, 3rem) clamp(1rem, 4vw, 2.5rem) 2rem;
+    }
+
+    .hero__logo {
+      width: min(10rem, 34vw);
+      margin-bottom: 1.25rem;
+      border: 3px solid var(--tm-ink);
+      border-radius: 999px;
+      background: var(--tm-yellow);
+      box-shadow: 0.35rem 0.35rem 0 rgba(17, 16, 14, 0.15);
+    }
+
+    .hero__title {
+      margin: 0;
+      transform: rotate(-4deg);
+    }
+
+    .hero__intro {
+      width: min(100%, 31rem);
+      margin: 1.5rem 0 0;
+      font-size: clamp(1.05rem, 3vw, 1.35rem);
+    }
+
+    .hero__intro strong {
+      color: var(--tm-yellow-dark);
+      font-weight: 900;
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .hero__media {
+      position: relative;
+      align-self: end;
+    }
+
+    .hero__media::before {
+      position: absolute;
+      right: 3%;
+      bottom: 10%;
+      z-index: 0;
+      width: 72%;
+      height: 62%;
+      content: "";
+      border-radius: 999px;
+      background: rgba(255, 183, 3, 0.22);
+      filter: blur(0.5rem);
+    }
+
+    .hero__image {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-height: 35rem;
+      object-fit: contain;
+      object-position: center bottom;
+      filter: drop-shadow(0 1rem 1.25rem rgba(17, 16, 14, 0.24));
+    }
+
+    .included {
+      padding: 1.25rem clamp(1rem, 4vw, 2.5rem) 2rem;
+    }
+
+    .included__title {
+      margin: 0 0 1.25rem;
+      font-size: clamp(1.3rem, 5vw, 2rem);
+    }
+
+    .included__grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .included__item {
+      display: grid;
+      gap: 0.65rem;
+      justify-items: center;
+      padding: 1rem 0.5rem;
+      border-left: 1px solid var(--tm-line);
+      text-align: center;
+    }
+
+    .included__icon {
+      display: grid;
+      width: 4.5rem;
+      height: 4.5rem;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--tm-yellow);
+      color: var(--tm-ink);
+    }
+
+    .included__icon svg {
+      width: 2.15rem;
+      height: 2.15rem;
+      stroke-width: 2.7;
+    }
+
+    .included__text {
+      max-width: 12rem;
+      font-family: "Bangers", Impact, sans-serif;
+      font-size: clamp(1.02rem, 4vw, 1.35rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .mess {
+      margin: 0 clamp(1rem, 4vw, 2.5rem);
+      padding: 1.1rem clamp(1rem, 4vw, 2rem);
+      background: var(--tm-yellow);
+      clip-path: polygon(0 10%, 3% 0, 9% 7%, 17% 0, 26% 7%, 35% 0, 46% 6%, 58% 0, 70% 7%, 82% 0, 94% 8%, 100% 0, 98% 48%, 100% 100%, 88% 93%, 78% 100%, 66% 94%, 55% 100%, 43% 93%, 32% 100%, 21% 94%, 10% 100%, 0 91%);
+    }
+
+    .mess__title {
+      margin: 0;
+      font-family: "Bangers", Impact, sans-serif;
+      font-size: clamp(1.55rem, 6vw, 2.4rem);
+      line-height: 1;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .mess__copy {
+      margin: 0.55rem 0 0;
+      max-width: 55rem;
+      color: #211b12;
+      font-size: clamp(1rem, 2vw, 1.15rem);
+    }
+
+    .pricing {
+      padding: 2rem clamp(1rem, 4vw, 2.5rem);
+    }
+
+    .pricing__grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .pricing-card {
+      position: relative;
+      display: grid;
+      min-height: 24rem;
+      align-content: space-between;
+      justify-items: center;
+      gap: 1rem;
+      overflow: hidden;
+      border: 2px solid var(--tm-line);
+      border-radius: 0.8rem;
+      background: rgba(255, 252, 245, 0.82);
+      padding: 1.2rem;
+      text-align: center;
+      box-shadow: 0 0.6rem 1.5rem var(--tm-shadow);
+    }
+
+    .pricing-card--featured {
+      border-color: rgba(255, 183, 3, 0.8);
+      box-shadow: 0 0.8rem 2rem rgba(228, 155, 0, 0.24);
+    }
+
+    .pricing-card__quantity {
+      margin-top: 0.2rem;
+      font-size: clamp(1.75rem, 6vw, 2.5rem);
+    }
+
+    .pricing-card__price {
+      color: var(--tm-yellow);
+      font-family: "Bangers", Impact, sans-serif;
+      font-size: clamp(4rem, 16vw, 6rem);
+      line-height: 0.9;
+      text-shadow: 0.04em 0.04em 0 rgba(17, 16, 14, 0.16);
+    }
+
+    .pricing-card__dollies {
+      font-family: "Bangers", Impact, sans-serif;
+      font-size: 1.3rem;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .pricing-card__house {
+      width: 5.25rem;
+      height: 4.5rem;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+    }
+
+    .pricing-card__fit {
+      width: 100%;
+      margin: 0;
+      padding: 0.55rem 0.75rem;
+      background: var(--tm-yellow);
+      clip-path: polygon(0 18%, 8% 4%, 24% 12%, 40% 0, 56% 11%, 75% 4%, 100% 16%, 95% 87%, 80% 78%, 65% 94%, 47% 84%, 29% 97%, 13% 85%, 0 100%);
+      font-family: "Bangers", Impact, sans-serif;
+      font-size: 1.15rem;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .addon {
+      padding: 0 1rem 1.5rem;
+    }
+
+    .addon__inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.8rem;
+      align-items: center;
+      max-width: 64rem;
+      margin: 0 auto;
+      border: 3px solid var(--tm-ink);
+      border-radius: 0.8rem;
+      background: #fffdf8;
+      padding: 0.8rem;
+    }
+
+    .addon__icon {
+      display: grid;
+      width: 4.5rem;
+      height: 4.5rem;
+      place-items: center;
+      border-radius: 999px;
+      background: var(--tm-yellow);
+    }
+
+    .addon__icon svg {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+
+    .addon__title {
+      margin: 0;
+      font-family: "Bangers", Impact, sans-serif;
+      font-size: clamp(1.35rem, 5vw, 2rem);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .addon__price {
+      grid-column: 1 / -1;
+      justify-self: end;
+      min-width: 6.4rem;
+      padding: 0.3rem 1rem;
+      text-align: center;
+      font-family: "Bangers", Impact, sans-serif;
+      font-size: 2.2rem;
+    }
+
+    .service-area {
+      display: grid;
+      gap: 1.5rem;
+      padding: 2rem clamp(1rem, 4vw, 2.5rem);
+      border-top: 2px solid var(--tm-line);
+      background: #fffaf0;
+    }
+
+    .service-area__image {
+      width: 100%;
+      min-height: 15rem;
+      border: 3px solid var(--tm-ink);
+      border-radius: 0.8rem;
+      object-fit: cover;
+      box-shadow: 0.45rem 0.45rem 0 var(--tm-yellow);
+    }
+
+    .service-area__eyebrow,
+    .contact__eyebrow {
+      margin: 0 0 0.6rem;
+      color: var(--tm-yellow-dark);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0;
+    }
+
+    .service-area__title,
+    .contact__title {
+      margin: 0;
+      font-family: "Bangers", Impact, sans-serif;
+      font-size: clamp(2.2rem, 9vw, 4rem);
+      line-height: 0.95;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .service-area__copy,
+    .contact__copy {
+      margin: 1rem 0 0;
+      max-width: 36rem;
+      color: var(--tm-muted);
+      font-size: 1.05rem;
+    }
+
+    .service-area__list {
+      display: grid;
+      gap: 0.6rem;
+      margin: 1.25rem 0 0;
+      padding: 0;
+      list-style: none;
+      font-weight: 800;
+    }
+
+    .service-area__list li::before {
+      content: "✓";
+      margin-right: 0.5rem;
+      color: var(--tm-yellow-dark);
+      font-weight: 900;
+    }
+
+    .contact {
+      padding: 2rem clamp(1rem, 4vw, 2.5rem);
+      background: var(--tm-cream);
+    }
+
+    .contact__panel {
+      display: grid;
+      gap: 1.25rem;
+      border: 3px solid var(--tm-ink);
+      border-radius: 0.85rem;
+      background: var(--tm-yellow);
+      padding: clamp(1.25rem, 4vw, 2rem);
+      box-shadow: 0.45rem 0.45rem 0 var(--tm-ink);
+    }
+
+    .contact__buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .footer {
+      display: grid;
+      gap: 0.75rem;
+      padding: 1.5rem clamp(1rem, 4vw, 2.5rem) 2rem;
+      border-top: 2px solid var(--tm-line);
+      background: var(--tm-ink);
+      color: var(--tm-cream);
+      font-size: 0.92rem;
+    }
+
+    .footer__nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .footer__copy {
+      margin: 0;
+      color: rgba(255, 247, 234, 0.72);
+    }
+
+    @media (min-width: 640px) {
+      .header__brand-text {
+        display: inline;
+      }
+
+      .pricing__grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .pricing-card {
+        min-height: 27rem;
+      }
+
+      .addon__inner {
+        grid-template-columns: auto 1fr auto;
+        padding: 0.9rem 1rem;
+      }
+
+      .addon__price {
+        grid-column: auto;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .header__nav {
+        display: flex;
+      }
+
+      .header__menu-button {
+        display: none;
+      }
+
+      .mobile-nav {
+        display: none !important;
+      }
+
+      .hero {
+        grid-template-columns: 0.9fr 1.1fr;
+        align-items: end;
+        padding-top: 2.75rem;
+      }
+
+      .included__grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .service-area {
+        grid-template-columns: 0.9fr 1.1fr;
+        align-items: center;
+      }
+
+      .contact__panel {
+        grid-template-columns: 1fr auto;
+        align-items: center;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .site-shell {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        border-radius: 1.8rem;
+      }
+
+      .hero__image {
+        max-height: 42rem;
+      }
+    }
+  </style>
 </head>
 <body>
-
+  <div class="site-shell">
     <header class="header">
-        <div class="header__container">
-            <div class="header__logo">⚡ BoldBrand</div>
-            <nav class="header__nav">
-                <a href="#features" class="header__link">Features</a>
-                <a href="#pricing" class="header__link">Pricing</a>
-                <a href="#testimonials" class="header__link">Reviews</a>
-                <a href="#contact" class="header__btn">Get Started</a>
-            </nav>
-        </div>
+      <div class="header__inner">
+        <a class="header__brand" href="#top" aria-label="Totes Magotes home">
+          <img class="header__logo" src="assets/logo.jpg" alt="Totes Magotes logo">
+          <span class="header__brand-text">Totes Magotes</span>
+        </a>
+
+        <nav class="header__nav" aria-label="Primary navigation">
+          <a class="header__nav-link" href="#included">What's Included</a>
+          <a class="header__nav-link" href="#pricing">Pricing</a>
+          <a class="header__nav-link" href="#area">Service Area</a>
+          <a class="button" href="#contact">Message</a>
+        </nav>
+
+        <button class="header__menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation">
+          <span class="header__menu-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+        <a class="mobile-nav__link" href="#included">What's Included</a>
+        <a class="mobile-nav__link" href="#pricing">Pricing</a>
+        <a class="mobile-nav__link" href="#area">Service Area</a>
+        <a class="mobile-nav__link" href="#contact">Message for Availability</a>
+      </nav>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero__container">
-                <div class="hero__content">
-                    <h1 class="hero__title">Make a statement without saying a word.</h1>
-                    <p class="hero__subtitle">Our platform gives you the tools to build striking, high-converting campaigns instantly. Bold choices drive bold results.</p>
-                    <a href="#contact" class="hero__cta">Claim Your Access</a>
-                </div>
-                <div class="hero__image-wrapper">
-                    <img src="hero-illustration.png" alt="Dynamic abstract business workspace illustration" class="hero__image">
-                </div>
-            </div>
-        </section>
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__content">
+          <img class="hero__logo" src="assets/logo.jpg" alt="Totes Magotes goats in a moving tote">
+          <h1 class="hero__title section-label" id="hero-title">
+            <span class="section-label__line">Totes</span>
+            <span class="section-label__line section-label__line--yellow">Magotes</span>
+          </h1>
+          <p class="hero__intro">
+            Make your move easier with this <strong>moving and storage tote rental</strong>. Get durable, stackable plastic moving boxes and dollies delivered for a cleaner local move.
+          </p>
+          <div class="hero__actions">
+            <a class="button button--dark" href="#pricing">See Prices</a>
+            <a class="button" href="#contact">Check Availability</a>
+          </div>
+        </div>
 
-        <section id="features" class="features">
-            <div class="features__container">
-                <div class="features__header">
-                    <h2 class="features__main-title">Engineered for Momentum</h2>
-                    <p class="features__main-subtitle">Everything you need to scale your output seamlessly.</p>
-                </div>
-                <div class="features__grid-wrapper">
-                    <div class="features__grid">
-                        <div class="feature-card">
-                            <div class="feature-card__icon">✦</div>
-                            <h3 class="feature-card__title">Lightning Fast</h3>
-                            <p class="feature-card__description">Optimized for maximum performance and blistering render speeds across all devices.</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-card__icon">▲</div>
-                            <h3 class="feature-card__title">Smart Analytics</h3>
-                            <p class="feature-card__description">Track user shifts and visual data patterns effortlessly with integrated modules.</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-card__icon">■</div>
-                            <h3 class="feature-card__title">Intuitive Control</h3>
-                            <p class="feature-card__description">A clean, frictionless environment built to remove the learning curve entirely.</p>
-                        </div>
-                    </div>
-                    <div class="features__image-wrapper">
-                        <img src="features-dashboard.png" alt="Minimalist tech dashboard UI visualization" class="features__image">
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div class="hero__media" aria-hidden="true">
+          <img class="hero__image" src="assets/montage.jpg" alt="">
+        </div>
+      </section>
 
-        <section id="pricing" class="pricing">
-            <div class="pricing__container">
-                <h2 class="pricing__title">Simple, Transparent Pricing</h2>
-                <div class="pricing__grid">
-                    <div class="pricing-card">
-                        <h3 class="pricing-card__tier">Core Plan</h3>
-                        <div class="pricing-card__price">$29<span>/mo</span></div>
-                        <p class="pricing-card__description">Perfect for individuals getting traction.</p>
-                        <ul class="pricing-card__features">
-                            <li>✓ Standard access keys</li>
-                            <li>✓ 5 active workspaces</li>
-                            <li>✓ Weekly automated reports</li>
-                        </ul>
-                        <a href="#contact" class="pricing-card__btn">Select Core</a>
-                    </div>
-
-                    <div class="pricing-card pricing-card--popular">
-                        <div class="pricing-card__badge">Most Popular</div>
-                        <h3 class="pricing-card__tier">Growth Plan</h3>
-                        <div class="pricing-card__price">$79<span>/mo</span></div>
-                        <p class="pricing-card__description">Built tailored for expanding teams.</p>
-                        <ul class="pricing-card__features">
-                            <li>✓ Unrestricted global access</li>
-                            <li>✓ Unlimited workspaces</li>
-                            <li>✓ Real-time alerting engine</li>
-                            <li>✓ Priority human support</li>
-                        </ul>
-                        <a href="#contact" class="pricing-card__btn pricing-card__btn--popular">Select Growth</a>
-                    </div>
-                </div>
+      <section class="included" id="included" aria-labelledby="included-title">
+        <h2 class="included__title brush-text" id="included-title">What's Included</h2>
+        <div class="included__grid">
+          <article class="included__item">
+            <div class="included__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8 2v4"></path><path d="M16 2v4"></path><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M3 10h18"></path><path d="M8 14h.01"></path><path d="M12 14h.01"></path><path d="M16 14h.01"></path><path d="M8 18h.01"></path><path d="M12 18h.01"></path>
+              </svg>
             </div>
-        </section>
+            <h3 class="included__text">2 Week Rental</h3>
+          </article>
 
-        <section id="testimonials" class="testimonials">
-            <div class="testimonials__container">
-                <div class="testimonials__image-wrapper">
-                    <img src="testimonials-accent.png" alt="Playful geometric speech bubbles graphic" class="testimonials__image">
-                </div>
-                <div class="testimonials__content">
-                    <h2 class="testimonials__title">Trusted by Innovators</h2>
-                    <blockquote class="testimonial-item">
-                        <p class="testimonial-item__quote">"Switching to this framework changed how we launch products. The visual hierarchy keeps our conversion rates consistently high."</p>
-                        <cite class="testimonial-item__author">— Morgan V., Lead Product Designer</cite>
-                    </blockquote>
-                </div>
+          <article class="included__item">
+            <div class="included__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 6h18"></path><path d="M5 6l1 15h12l1-15"></path><path d="M8 6V4h8v2"></path><path d="M9 10v7"></path><path d="M15 10v7"></path>
+              </svg>
             </div>
-        </section>
+            <h3 class="included__text">20, 40, or 60 Heavy-Duty Totes</h3>
+          </article>
 
-        <section id="contact" class="contact">
-            <div class="contact__container">
-                <h2 class="contact__title">Ready to Transform Your Workflow?</h2>
-                <p class="contact__subtitle">Drop your details below and our team will get you onboarded within the hour.</p>
-                <form class="contact-form" onsubmit="event.preventDefault();">
-                    <div class="contact-form__group">
-                        <label for="name" class="contact-form__label">Name</label>
-                        <input type="text" id="name" class="contact-form__input" placeholder="Your Name" required>
-                    </div>
-                    <div class="contact-form__group">
-                        <label for="email" class="contact-form__label">Email Address</label>
-                        <input type="email" id="email" class="contact-form__input" placeholder="you@domain.com" required>
-                    </div>
-                    <button type="submit" class="contact-form__submit">Get Started Instantly</button>
-                </form>
+          <article class="included__item">
+            <div class="included__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 3h6v6H7z"></path><path d="M13 7h3.5l2 4H21v5h-2"></path><path d="M7 9v7h8"></path><circle cx="7" cy="18" r="2"></circle><circle cx="17" cy="18" r="2"></circle>
+              </svg>
             </div>
-        </section>
+            <h3 class="included__text">Tote Dolly for Easy Transport</h3>
+          </article>
+
+          <article class="included__item">
+            <div class="included__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 17h4V5H2v12h3"></path><path d="M14 8h4l4 4v5h-3"></path><circle cx="7" cy="17" r="2"></circle><circle cx="17" cy="17" r="2"></circle><path d="M2 9h4"></path><path d="M2 13h3"></path>
+              </svg>
+            </div>
+            <h3 class="included__text">Coordinate Delivery & Pickup</h3>
+          </article>
+        </div>
+      </section>
+
+      <section class="mess" aria-labelledby="mess-title">
+        <h2 class="mess__title" id="mess-title">No folding boxes, no tape, and no cardboard mess.</h2>
+        <p class="mess__copy">Great for local moves, apartments, and home moves around Woodburn and surrounding areas. Delivery outside the local area may be available for a fee.</p>
+      </section>
+
+      <section class="pricing" id="pricing" aria-labelledby="pricing-title">
+        <h2 class="sr-only" id="pricing-title">Rental Pricing</h2>
+        <div class="pricing__grid">
+          <article class="pricing-card">
+            <h3 class="pricing-card__quantity brush-text">20 Totes</h3>
+            <p class="pricing-card__price">$99</p>
+            <p class="pricing-card__dollies">+ Tote Dolly</p>
+            <img class="pricing-card__house" src="assets/house01-freepik.jpg" alt="Small home illustration">
+            <p class="pricing-card__fit">1 Bedroom House/Apartment</p>
+          </article>
+
+          <article class="pricing-card pricing-card--featured">
+            <h3 class="pricing-card__quantity brush-text">40 Totes</h3>
+            <p class="pricing-card__price">$169</p>
+            <p class="pricing-card__dollies">+ 2 Tote Dollies</p>
+            <img class="pricing-card__house" src="assets/house02-freepik.jpg" alt="Medium home illustration">
+            <p class="pricing-card__fit">2-3 Bedroom House/Apartment</p>
+          </article>
+
+          <article class="pricing-card">
+            <h3 class="pricing-card__quantity brush-text">60 Totes</h3>
+            <p class="pricing-card__price">$219</p>
+            <p class="pricing-card__dollies">+ 3 Tote Dollies</p>
+            <img class="pricing-card__house" src="assets/house03-freepik.jpg" alt="Large home illustration">
+            <p class="pricing-card__fit">4+ Bedroom House/Apartment</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="addon" aria-labelledby="addon-title">
+        <div class="addon__inner">
+          <div class="addon__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 3h5v7H6z"></path><path d="M11 7h3.5l2.5 4H20v5h-2"></path><path d="M6 10v6h10"></path><circle cx="6" cy="18" r="2"></circle><circle cx="18" cy="18" r="2"></circle><path d="M3 4h3"></path>
+            </svg>
+          </div>
+          <h2 class="addon__title" id="addon-title">Add a heavy item hand truck for appliances/furniture</h2>
+          <p class="addon__price brush-text">$35</p>
+        </div>
+      </section>
+
+      <section class="service-area" id="area" aria-labelledby="area-title">
+        <img class="service-area__image" src="assets/stack-by-truck.jpg" alt="Stacked black and yellow moving totes beside a delivery truck">
+        <div class="service-area__content">
+          <p class="service-area__eyebrow">Built for local moves</p>
+          <h2 class="service-area__title" id="area-title">Reusable totes delivered to your door.</h2>
+          <p class="service-area__copy">Skip buying boxes, folding flaps, taping seams, and breaking everything down afterward. Totes Magotes keeps the moving process simple from drop-off to pickup.</p>
+          <ul class="service-area__list">
+            <li>Stackable plastic boxes for cleaner packing</li>
+            <li>Dollies included with every bundle</li>
+            <li>Message for custom bundles and date availability</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <div class="contact__panel">
+          <div>
+            <p class="contact__eyebrow">Ready to move?</p>
+            <h2 class="contact__title" id="contact-title">Message for availability.</h2>
+            <p class="contact__copy">Tell us your move date, location, and bundle size. We will help coordinate delivery and pickup.</p>
+          </div>
+          <div class="contact__buttons">
+            <a class="button button--dark" href="sms:+15035550100">Text Us</a>
+            <a class="button" href="mailto:hello@totesmagotes.example?subject=Tote%20Rental%20Availability">Email</a>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
-        <div class="footer__container">
-            <p>&copy; 2026 BoldBrand. All rights reserved. Designed for maximum momentum.</p>
-        </div>
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <a href="#included">Included</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#area">Service Area</a>
+        <a href="#contact">Availability</a>
+      </nav>
+      <p class="footer__copy">&copy; 2026 Totes Magotes. Moving tote rental for Woodburn and surrounding areas.</p>
     </footer>
+  </div>
 
+  <script>
+    const menuButton = document.querySelector(".header__menu-button");
+    const mobileNav = document.querySelector(".mobile-nav");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = mobileNav.classList.toggle("mobile-nav--open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    mobileNav.addEventListener("click", (event) => {
+      if (event.target.closest("a")) {
+        mobileNav.classList.remove("mobile-nav--open");
+        menuButton.setAttribute("aria-expanded", "false");
+      }
+    });
+  </script>
 </body>
 </html>
